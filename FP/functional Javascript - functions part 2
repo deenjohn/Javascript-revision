@@ -1,0 +1,25 @@
+a function with no arguments
+(() => {})()
+
+
+a function with arguments
+((diameter) => diameter * 3.14159265)(2)
+  //=> 6.2831853
+
+..............................................
+Closures and Scope
+
+It’s time to see how a function within a function works:
+
+((x) => (y) => x)(1)(2)
+  //=> 1
+  
+.................................................................................................
+
+Naming Functions
+Let’s get right to it. This code does not name a function:
+const repeat = (str) => str + str
+It doesn’t name the function “repeat” for the same reason that const answer = 42 doesn’t name
+the number 42. This syntax binds an anonymous function to a name in an environment, but the
+function itself remains anonymous.
+

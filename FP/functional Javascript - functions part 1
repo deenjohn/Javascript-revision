@@ -1,0 +1,83 @@
+
+() => 0  , is a function
+
+functions and identities
+
+(() => 0) === (() => 0)
+  //=> false
+  
+if you use the same expression to generate it. “Function” is a reference type
+  
+fn_expr is an expression that when evaluated, produces a function. Let’s call the arguments args. Here’s how to apply a function
+to some arguments:
+
+fn_expr(args)
+
+We can use commas with functions to create functions that evaluate multiple expressions:
+
+(() => (1 + 1, 2 + 2))()
+  //=> 4
+
+(() => 2 + 2)()
+  //=> 4
+(() => { 2 + 2 })()
+  //=> undefined
+  
+(() => (1 + 1, 2 + 2))()
+  //=> 4
+(() => { 1 + 1; 2 + 2 })()
+  //=> undefined
+  
+  
+...........................................................
+
+(() => { return 0 })()
+  //=> 0
+  
+(() => { return 1 })()
+  //=> 1
+  
+(() => { return 'Hello ' + 'World' })()
+  //
+  
+..............................................................................
+
+(() => {
+    1 + 1;
+    return 2 + 2
+  })()
+  //=> 4
+  
+................................................................................
+The return statement is the first statement we’ve seen, and it behaves differently than an expression. 
+For example, you can’t use one as the expression in a simple function, because it isn’t an expression:
+
+(() => return 0)()
+  //=> ERROR
+
+...........................................................................................................
+
+() => () => 0
+That’s a function! It’s a function that when applied, evaluates to a function that when applied, evaluates to 0. 
+So we have a function, that returns a function, that returns zero
+
+..........................................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,73 @@
+
+ reduce([1, 2], (sum, n) => sum + n, 0)
+ * // => 3
+ *
+ * reduce({ 'a': 1, 'b': 2, 'c': 1 }, (result, value, key) => {
+ *   (result[value] || (result[value] = [])).push(key)
+ *   return result
+ * }, {})
+ * // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
+ */
+ 
+ collection is  { 'a': 1, 'b': 2, 'c': 1 } 
+ iteratee is (result, value, key) => {
+ *   (result[value] || (result[value] = [])).push(key)
+ *   return result
+ * }
+ 
+ accumulator is {}
+ 
+ for index or each key :value pair in this collection , iteratee will be called
+ so  for 'a': 1 , initially  result[value] = [] as there is no array with value result[1] 
+ then we push in the array result[1].push(a)
+ 
+ so accumulator object after ist call is { '1' :['a'] }
+ 
+ 
+ ..............................................................................................................
+ 
+function reduce(collection, iteratee, accumulator) {
+  const func = Array.isArray(collection) ? arrayReduce : baseReduce
+  const initAccum = arguments.length < 3
+  return func(collection, iteratee, accumulator, initAccum, baseEach)
+}
+
+
+
+.............................................................................
+
+https://stackoverflow.com/questions/5732043/javascript-reduce-on-array-of-objects
+
+var arr = [{x:1}, {x:2}, {x:4}];
+arr.reduce(function (acc, obj) { return acc + obj.x; }, 0); // 7
+...................................................................................................
+
+ex :
+
+
+var ratings = [2,3,1,4,5];
+
+	var res = ratings.
+	  reduce(function(acc, curr) {
+          console.log("acc ",acc)
+		if(acc > curr) {
+		  return acc;
+		}
+		else {
+		  return curr;
+		}
+	  });
+console.log(res)
+
+
+
+...............................................................
+
+
+
+
+
+
+
+
+
