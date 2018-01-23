@@ -1,0 +1,35 @@
+
+https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+https://developer.mozilla.org/en-US/docs/Web/API/Document/createTreeWalker
+
+       function makeList() {
+                var div = document.getElementById("div1");
+                var filter = function(node){
+                    return (node.tagName.toLowerCase() == "li") ? 
+                        NodeFilter.FILTER_ACCEPT : 
+                        NodeFilter.FILTER_SKIP;
+                };
+                
+                //filter can be a object or a function
+                var walker = document.createTreeWalker(div, NodeFilter.SHOW_ELEMENT, filter, false);
+                   
+                var output = document.getElementById("text1");
+                var node = walker.nextNode();
+                while (node !== null) {
+                    output.value += node.tagName + "\n";
+                    node = walker.nextNode();
+                }
+
+           }
+
+
+One difference is in the values that the filter can return. In addition to NodeFilter.FILTER_
+ACCEPT and NodeFilter.FILTER_SKIP, 
+there is NodeFilter.FILTER_REJECT. 
+
+When used with a
+NodeIterator object, NodeFilter.FILTER_SKIP and NodeFilter.FILTER_REJECT do the same
+thing: they skip over the node. 
+When used with a TreeWalker object, NodeFilter.FILTER_SKIP skips
+over the node and goes on to the next node in the subtree,
+whereas NodeFilter.FILTER_REJECT skips over that node and that node’s entire subtree

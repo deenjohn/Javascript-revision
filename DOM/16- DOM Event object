@@ -1,0 +1,111 @@
+
+https://developer.mozilla.org/en/docs/Web/API/Event
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement
+Professional javascript book - ch 13 
+https://blog.bigbinary.com/2010/02/15/how-jquery-selects-elements-using-sizzle.html
+
+THE EVENT OBJECT
+When an event related to the DOM is fired, all of the relevant information is gathered and stored
+on an object called event. This object contains basic information such as the element that caused
+the event, the type of event that occurred, and any other data that may be relevant to the particular
+event. For example, an event caused by a mouse action generates information about the mouse’s
+position, whereas an event caused by a keyboard action generates information about the keys that
+were pressed. All browsers support the event object, though not in the same way.
+
+The event object contains properties and methods related to the specifi c event that caused its
+creation like : 
+stopImmediatePropagation()
+stopPropagation()
+
+
+..............................................................................................................................
+
+<input type="button" value="Click Me" onclick="alert(value)" />
+<input type="button" value="Click Me" onclick="showMessage(value)" />
+
+Event handlers assigned in this way, DOM Level 0 , have some unique aspects. 
+
+First, a function is created that wraps the attribute value like "type" , "value" etc. 
+
+That function has a special local variable called "event", which is the event object 
+chain. Within the function, members of both document and the element itself can be accessed
+as if they were local variables. The function accomplishes this via scope chain augmentation
+using with:
+
+function(){
+
+ with(document){ //access to document
+
+ with(this){ //acess to this ie element object 
+ //attribute value
+   }
+ }
+}
+
+<input type="button" value="Click Me" onclick="alert(value)" />
+
+<input type="button" value="Click Me" onclick="alert(type)" />
+
+//using event object
+<input type="button" value="Click Me" onclick="alert(event.currentTarget )" />
+
+    <script type="text/javascript">
+        function listner1(name) {
+
+            
+            console.log(name); //Access to name attribute
+            event.target.disabled = true;
+            console.log(event.target.disabled);
+
+            console.log(event.srcElement.attributes);
+
+        }
+
+    </script>
+
+
+.....................................................................................
+
+
+
+
+DOM Level 0 events were based around the concept of using element attributes or named events on DOM elements,
+
+
+................................................................
+
+This means that an event handler can access its own properties easily. 
+
+function(){
+ 
+ with(document){  // access to document object
+ 
+ with(this.form){ //access to form
+ 
+ with(this){  // access to the element
+ //attribute value
+ 
+      }
+    }
+   }
+}
+
+
+Basically, this augmentation allows the event handler code to access other members of the same
+form without referencing the form element itself. For example:
+
+<form method=”post”>
+ <input type=”text” name=”username” value=””> // "username"
+ <input type=”button” value=”Echo Username” onclick=”alert(username.value)”> // imp
+</form>
+
+.........................................................................
+
+
+
+
+
+
+
+
+

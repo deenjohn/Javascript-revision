@@ -1,0 +1,27 @@
+
+Capture child element events
+
+
+<body>
+  <ul id="grid">
+    <li><img src="images/ylw.gif" alt="yellow"></li>
+    <li><img src="images/org.gif" alt="orange"></li>
+    <li><img src="images/ppl.gif" alt="purple"></li>
+    <li><img src="images/blu.gif" alt="blue"></li>
+    <li><img src="images/pnk.gif" alt="pink" id="pink"></li>
+    <li><img src="images/grn.gif" alt="green"></li>
+    <li><img src="images/ygr.gif" alt="ygreen"></li>
+    <li><img src="images/gry.gif" alt="gray"></li>
+    <li><img src="images/red.gif" alt="red"></li>
+  </ul>
+  <script>
+    document.getElementById('grid').addEventListener('click', function (e) {
+      console.log(e.target);
+    }, false);  // Bubbling phase
+ 
+  // <img src="images/ylw.gif" alt="yellow">
+ // <img src="images/blu.gif" alt="blue">
+
+  </script>
+
+</body>

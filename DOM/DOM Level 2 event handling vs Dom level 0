@@ -1,0 +1,51 @@
+## Dom level 0
+
+<button  name ="I am button" onclick="listner1(name)" >Click Me </button> 
+
+ <script type="text/javascript">
+           
+            function listner1(arg) {
+                   if(arg){
+                    console.log(arg) // "I am button
+                    
+                    return
+                   }
+                   
+             }
+  </script>
+
+......................................................................
+
+## Dom level 2
+<body >
+
+   <button  name ="I am button" >Click Me </button>         
+
+   <script type="text/javascript">
+           
+            function listner1(name) {
+                   if(name){
+                    console.log(name)
+                    
+                    return
+                   }
+                  
+             }
+          }
+             
+             var btn = document.querySelector('button');
+              
+              btn.addEventListener('click' , listner1 ,{capture: false});
+              
+              btn.addEventListener("mouseover", function(name){  
+                //  <button  name ="I am button" >Click Me </button> 
+                   
+                   console.log(name);  // prints event object instead of name attribute value compared to 
+
+             })
+            
+             
+    </script>
+
+
+</body>

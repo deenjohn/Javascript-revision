@@ -1,0 +1,22 @@
+
+<body>
+    
+    <input type="button" id="myBtn" value="Click Me" />
+    
+    <script type="text/javascript">
+          
+         document.body.onclick = function(event){
+              
+              //Current target 
+        	    console.log(event.currentTarget)  // <body
+             
+             // target 
+        	    console.log(event.target);  // <input type ="button" >
+
+            console.log(event.currentTarget === document.body);   //true
+            console.log(this === document.body);   //true
+            console.log(event.target ===event.currentTarget)           //false
+            console.log(event.target === document.getElementById("myBtn")); //true
+        };       
+    </script>
+</body>

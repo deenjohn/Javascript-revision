@@ -1,0 +1,46 @@
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+https://www.quirksmode.org/js/events_order.html#link4
+https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+
+SyntaxEdit
+target.addEventListener(type, listener[, options]);
+target.addEventListener(type, listener[, useCapture]);
+
+
+  With Event listners ,you can add multiple function listners to same event on same element.
+
+
+    <body >
+    
+  
+    
+    <button  name ="I am button" >Click Me
+    </button>         
+
+   <script type="text/javascript">
+           
+            function listner1(arg) {
+                   if(arg){
+                    console.log(arg.currentTarget) // button or body
+                    return
+                   }
+                   //console.log("listners1")
+             }
+             
+              function listner2() {
+                   console.log("listners2")
+             }
+             
+             document.addEventListener('click' ,listner1)
+             var btn = document.querySelector('button');
+             btn.addEventListener('click' , listner1 ,false); //bubble phase
+            //btn.addEventListener('click' , listner1 ,true); //capture phase
+             //btn.addEventListener('click' , listner1 ,{capture: true});
+             
+             
+             //btn.addEventListener('click' , listner2);
+             
+    </script>
+
+
+</body>

@@ -1,0 +1,18 @@
+https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector
+
+Returns the first element that is a descendant of the element on which it is invoked 
+that matches the specified group of selectors.
+This method accepts a css query
+
+If no matches are found, the returned value is null.
+
+The string argument pass to querySelector must follow the CSS syntax.
+
+
+
+
+SyntaxEdit
+
+element = baseElement.querySelector(selectors);
+

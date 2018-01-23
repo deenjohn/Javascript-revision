@@ -1,0 +1,29 @@
+
+
+The "type" property is useful when you want to assign a single function to handle multiple events.
+Here is an example
+
+<input type="button" id="myBtn" value="Click Me" />
+
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        var handler = function (event) {
+            switch (event.type) {
+                case "click":
+                    console.log("Clicked");
+                    break;
+
+                case "mouseover":
+                    event.target.style.backgroundColor = "red";
+                    break;
+
+                case "mouseout":
+                    event.target.style.backgroundColor = "";
+                    break;
+            }
+        };
+
+        btn.onclick = handler;
+        btn.onmouseover = handler;
+        btn.onmouseout = handler;
+    </script>

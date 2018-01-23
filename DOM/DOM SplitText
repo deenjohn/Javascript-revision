@@ -1,0 +1,46 @@
+
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Text/splitText
+    
+    
+
+        function addNode(){
+        
+            var element = document.createElement("div");
+            element.className = "message";
+            
+            var textNode = document.createTextNode("Hello world!");
+            element.appendChild(textNode);
+            
+            document.body.appendChild(element);
+            
+            var newNode = element.firstChild.splitText(5);
+            console.log(element.firstChild.nodeValue);  //"Hello"
+            console.log(newNode.nodeValue);             //" world!"
+            console.log(element.childNodes.length);     //2
+
+            
+        }
+
+..............................................................
+
+<body>
+  <p id="p">foobar</p>
+
+  <script type="text/javascript">
+    var p = document.getElementById('p');
+    var textnode = p.firstChild;
+
+    // split between foo and bar
+    var replacementNode = textnode.splitText(3); // "bar"
+
+    // creating a span with ' span contents '
+    var span = document.createElement('span');
+    span.appendChild(document.createTextNode(' span contents '));
+
+    // adding the span before 'bar'
+    p.insertBefore(span, replacementNode);
+
+    // the result is <p id="p">foo<span> span contents </span>bar</p>
+  </script>
+</body>

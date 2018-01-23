@@ -1,0 +1,12 @@
+
+https://developer.mozilla.org/en-US/docs/Web/API/
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
+https://developer.mozilla.org/en-US/docs/Web/API/Element
+https://developer.mozilla.org/en-US/docs/Web/API/Node
+https://www.w3schools.com/jsref/dom_obj_all.asp
+
+
+Every DOM element inherits properties, methods from its parent and has specific methods for the type of element.
+For ex : Input element has properties specific for input type , Select has properties for its type.
+

@@ -1,0 +1,72 @@
+https://www.w3schools.com/js/js_htmldom.asp
+http://voyager.cs.bgsu.edu/greenr/Lectures/lecture19-dom-tree.shtml
+
+
+
+  Element nodes have a nodeType value of 1.
+• Attribute nodes have a nodeType value of 2.
+• Text nodes have a nodeType value of 3.
+
+
+Inner Text :
+
+
+
+var body_element = document.getElementsByTagName("body")[0]
+
+body_element.innerText
+
+"Snapshots
+
+Fireworks
+Coffee
+Rose
+Big Ben
+
+Choose an image."
+
+....................................................................................................................
+<ul>
+    <li>
+      <a href="images/fireworks.jpg" title="A fireworks display" onmouseover="showPic(this)" ;="" onmouseout="outPic(this)" return="" false;"="">Fireworks</a>
+    </li>
+    <li>
+      <a href="images/coffee.jpg" title="A cup of black coffee" onmouseover="showPic(this)" ;="" return="" false;"="">Coffee</a>
+    </li>
+    <li>
+      <a href="images/rose.jpg" title="A red, red rose" onmouseover="showPic(this)" ;="" return="" false;"="">Rose</a>
+    </li>
+    <li>
+      <a href="images/bigben.jpg" title="The famous clock" onclick="showPic(this); return false;">Big Ben</a>
+    </li>
+</ul>
+  
+var body_element = document.getElementsByTagName("ul")
+
+body_element[0].innerText
+"Fireworks
+Coffee
+Rose
+Big Ben
+"
+......................................................................
+Changing the Value of an Attribute
+To change the value of an HTML attribute, use this syntax:
+
+document.getElementById(id).attribute = new value
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+ 

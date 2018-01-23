@@ -1,0 +1,21 @@
+
+
+
+    <li>
+      <a href="images/fireworks.jpg" title="A fireworks display" onmouseover="showPic(this)" ;="" 
+         onmouseout="outPic(this)" return="" false;"="">Fireworks</a>
+    </li>
+    
+    "this" refers to the element <a> </a>
+    
+  function showPic(whichpic) {
+	
+      console.log(whichpic)
+
+     var source = whichpic.getAttribute("href"); //images/fireworks.jpg
+     var placeholder = document.getElementById("placeholder");
+     placeholder.setAttribute("src",source);
+     var text = whichpic.getAttribute("title");
+     var description = document.getElementById("description");
+     description.firstChild.nodeValue = text;
+}
