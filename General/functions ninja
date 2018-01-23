@@ -1,0 +1,73 @@
+
+1) Functions create scope :
+
+var a = 2;
+
+function foo() { // <-- insert this
+
+	var a = 3;
+	console.log( a ); // 3
+
+} // <-- and this
+foo(); // <-- and this
+
+console.log( a ); // 2
+
+2) above code pollutes the global space
+
+Problems with above code :
+
+There are a few problems it introduces. The first is that we have to declare a named-function foo(), 
+which means that the identifier name foo itself "pollutes" the enclosing scope (global, in this case). 
+We also have to explicitly call the function by name (foo()) so that the wrapped code actually executes.
+
+It would be more ideal if the function didn't need a name (or, rather, the name didn't pollute the enclosing scope), 
+and if the function could automatically be executed.
+
+Fortunately, JavaScript offers a solution to both problems.
+
+Solution :
+var a = 2;
+
+(function foo(){ // <-- insert this
+
+	var a = 3;
+	console.log( a ); // 3
+
+})(); // <-- and this
+
+console.log( a ); // 2
+
+...............................................................
+3) declaration vs. expression
+
+Note: The easiest way to distinguish declaration vs. expression is the position of the word "function" in the statement
+(not just a line, but a distinct statement). 
+If "function" is the very first thing in the statement, then it's a function declaration. Otherwise, it's a function expression.
+
+The key difference we can observe here between a function declaration and a function expression relates to where its name is bound as an identifier.
+
+Compare the previous two snippets. In the first snippet, the name foo is bound in the enclosing scope, and we call it directly 
+with foo(). In the second snippet, the name foo is not bound in the enclosing scope, but instead is bound only inside of its
+own function.
+
+In other words, (function foo(){ .. }) as an expression means the identifier foo is found only in the scope where the .. 
+indicates, not in the outer scope. Hiding the name foo inside itself means it does not pollute the enclosing scope unnecessarily.
+
+
+......................................................................................................
+function scope 
+
+function outer(){                                              //#7
+        assert(typeof inner === "function",
+               "inner() in scope before declaration");
+        
+        function inner(){}
+
+        assert(typeof inner === "function",
+              "inner() in scope after declaration");
+        assert(window.inner === undefined,
+               "inner() not in global scope");
+      }
+
+      outer();

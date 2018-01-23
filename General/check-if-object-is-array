@@ -1,0 +1,15 @@
+https://stackoverflow.com/questions/4775722/check-if-object-is-array
+
+The method given in the ECMAScript standard to find the class of Object is to use the toString method from Object.prototype.
+
+if( Object.prototype.toString.call( someVar ) === '[object Array]' ) {
+    alert( 'Array!' );
+}
+Or you could use typeof to test if it is a String:
+
+if( typeof someVar === 'string' ) {
+    someVar = [ someVar ];
+}
+Or if you're not concerned about performance, you could just do a concat to a new empty Array.
+
+someVar = [].concat( someVar );

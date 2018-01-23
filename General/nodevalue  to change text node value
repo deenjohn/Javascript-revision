@@ -1,0 +1,12 @@
+
+https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeValue
+
+
+Introducing the nodeValue property
+If you want to change the value of a text node, there is a DOM property called nodeValue that can be used
+to get (and set) the value of a node:
+node.nodeValue
+
+Notes
+For the document itself, nodeValue returns null. For text, comment, and CDATA nodes, nodeValue returns the content of the node. 
+For attribute nodes, the value of the attribute is returned.

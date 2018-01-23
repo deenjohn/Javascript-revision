@@ -1,0 +1,18 @@
+https://stackoverflow.com/questions/591857/how-can-i-get-a-javascript-stack-trace-when-i-throw-an-exception
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function square(n) {
+  var err = new Error();
+  return err.stack;
+  return multiply(n, n);
+}
+
+function printSquare(n) {
+  var squared = square(n);
+  console.log(squared);
+}
+
+printSquare(4);

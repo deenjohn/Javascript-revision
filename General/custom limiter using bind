@@ -1,0 +1,20 @@
+
+
+var checkPastLimitSimplified  = function(limiter){
+
+   return function (limiter , item){
+    
+        return item > limiter
+   }.bind(this,limiter)  // returns copy of this function with ist parameter limiter already set
+
+}
+
+var arr5 = mapForEach(arr1 , checkPastLimitSimplified(2)) ;
+
+checkPastLimitSimplified(2) returns another function : 
+
+function (item){
+    
+        var limiter = 2;
+        return item > limiter ;
+   }

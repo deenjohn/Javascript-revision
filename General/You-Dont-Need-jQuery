@@ -1,0 +1,153 @@
+
+https://github.com/oneuijs/You-Dont-Need-jQuery
+
+
+1)Get index of e.currentTarget between
+
+
+ <ul>
+        <li id="foo">foo</li>
+        <li id="bar">bar</li>
+        <li id="baz">baz</li>
+    </ul>
+    
+  <script type="text/javascript">
+        function countChildren() {
+            var el = document.getElementById("bar");
+            
+            var res = Array.prototype.indexOf.call(document.querySelectorAll('li'),
+                el);
+            console.log(res) //1
+            
+
+        }
+    </script>
+    
+ 2) CSS
+ 
+ a) tyle
+
+// jQuery
+$el.css({ color: '#f01' });
+
+// Native
+el.style.color = '#f01';
+
+
+
+b)  class
+
+// jQuery
+$el.addClass(className);
+
+// Native
+el.classList.add(className)
+
+
+c)  class
+
+// jQuery
+$el.hasClass(className);
+
+// Native
+el.classList.contains(className);
+
+
+
+........................................................................
+
+
+DOM Manipulation
+ 
+ AddClass
+ 
+ <style type="text/css">
+        p {
+            margin: 8px;
+            font-size: 16px;
+        }
+
+        .selected {
+            color: blue;
+        }
+
+        .highlight {
+            background: yellow;
+        }
+    </style>
+    <p>Hello</p>
+    <p>and</p>
+    <p>Goodbye</p>
+    <script type="text/javascript">
+        var el = document.getElementsByTagName("p")
+        var arr = Array.from(el);
+        console.log(arr)
+        console.log(arr[arr.length - 1].classList.add("selected"))
+    </script>
+    
+    
+    
+    d) toggleclass
+
+https://api.jquery.com/toggleClass/
+
+<div class="tumble">Some text.</div>
+The first time we apply $( "div.tumble" ).toggleClass( "bounce" ), 
+
+we get the following:
+<div class="tumble bounce">Some text.</div>
+The second time we apply $( "div.tumble" ).toggleClass( "bounce" ), 
+
+the <div> class is returned to the single tumble value:
+<div class="tumble">Some text.</div>
+
+Ex :
+
+<div>
+        <p class="blue">Click to toggle</p>
+        <p class="blue highlight">highlight</p>
+        <p class="blue">on these</p>
+        <p class="blue">paragraphs</p>
+    </div>
+
+<script type="text/javascript">
+        function countChildren() {
+            var allE = document.querySelectorAll("p");
+            allE.forEach((el) => el.classList.toggle("highlight"))
+
+            //el.classList.toggle(className);
+
+
+        }
+    </script>
+    
+    ........................................
+    Selectors
+    
+    method 1 
+     var el = document.getElementsByTagName("p")
+        var arr = Array.from(el);
+        console.log(arr)
+        arr.filter((el) => el.classList.value.indexOf("greet") != -1)
+            .map((el) => el.classList.add("selected"));
+            
+       method 2  (less verbose)
+       
+        [].forEach.call(nodes, (el) => {
+            if (el.classList.value.indexOf("greet") != -1)
+                el.classList.add("selected");
+            return
+        })
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+

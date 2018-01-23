@@ -1,0 +1,32 @@
+https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md
+
+Que 1:
+
+function foo(a) {
+  
+  for(var i =0 ;i<2 ;i++){
+    console.log(i)
+  }
+  
+  console.log('outside ',i)
+}
+
+foo( 2 );
+...................................................................
+
+Que 2 :
+
+
+
+function foo() {
+	function bar(a) {
+		i = 3; // changing the `i` in the enclosing scope's for-loop
+		console.log( a + i );
+	}
+
+	for (var i=0; i<10; i++) {
+		bar( i * 2 ); // oops, infinite loop ahead!
+	}
+}
+
+foo();

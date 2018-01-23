@@ -1,0 +1,30 @@
+
+function.length - the no of parameters defined in the function declaration.
+
+arguments.length - the actual parameters passed to function at the time of function invocation.
+
+
+function make(name) {} 
+// make.length is 1
+
+make("deen" , "sumit" ) 
+// make.arguments.length is 2
+
+
+
+var ninja = {
+  whatever: function() {
+       switch (arguments.length) {
+         case 0:
+           /* do something */
+           break;
+         case 1:
+           /* do something else */
+           break;
+         case 2:
+           /* do yet something else */
+           break;
+       //and so on ...
+       }
+     }
+}

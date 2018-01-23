@@ -1,0 +1,46 @@
+
+[[Get]] — The function to call when the property is read from. The default value is
+undefined.
+[[Set]] — The function to call when the property is written to. The default value is
+undefined
+
+
+
+var book = {
+ _year: 2004,
+ edition: 1
+};
+
+//property "year" is defined
+
+Object.defineProperty(book, “year”, {
+  get: function(){
+    return this._year;
+ },
+ set: function(newValue){ //2005
+
+ if (newValue > 2004) {
+   this._year = newValue;
+   this.edition += newValue - 2004;
+ }
+ }
+});
+
+console.log(book.edition); //1
+book.year = 2005;
+console.log(book.edition); //2
+
+Assigning just a getter means that the property
+cannot be written to and attempts to do so will be ignored
+
+ Likewise, a property with only a setter cannot be read and
+will return the value undefined in nonstrict mode, while doing so throws an error in strict mode.
+
+
+
+
+
+
+
+
+

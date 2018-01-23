@@ -1,0 +1,34 @@
+
+1)// Attach a bunch of functions for handling common AJAX events
+
+jQuery.each( "ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend".split( " " ), function( i, o ){
+  jQuery.fn[ o ] = function( f ){
+    return this.bind( o, f );
+  };
+});
+
+
+
+jQuery.each( [ "get", "post" ],
+
+  
+ function( i, method ) {
+  jQuery[ method ] = function( url, data, callback, type ) {
+    // shift arguments if data argument was omitted
+    if ( jQuery.isFunction( data ) ) {
+      type = type || callback;
+      callback = data;
+      data = undefined;
+    }
+
+    return jQuery.ajax({
+      type: method,
+      url: url,
+      data: data,
+      success: callback,
+      dataType: type
+    });
+  };
+});
+
+

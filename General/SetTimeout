@@ -1,0 +1,9 @@
+
+https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
+
+var timeoutID = scope.setTimeout(function[, delay, param1, param2, ...]);
+var timeoutID = scope.setTimeout(function[, delay]);
+var timeoutID = scope.setTimeout(code[, delay]);
+
+param1, ..., paramN Optional
+Additional parameters which are passed through to the function specified by function or code once the timer expires.

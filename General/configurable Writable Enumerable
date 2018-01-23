@@ -1,0 +1,74 @@
+
+Writable i.e read only
+
+var person = {};
+Object.defineProperty(person, “name”, {
+ writable: false,
+ value: “Nicholas”
+});
+alert(person.name); //”Nicholas”
+person.name = “Greg”;
+alert(person.name); //”Nicholas”
+
+.....................................................................................
+
+nonconfigurable
+
+setting configurable to false means that the property cannot be removed from the object.
+
+Calling delete on the property has no effect in nonstrict mode and throws an error in strict mode.
+
+Additionally, once a property has been defined as nonconfi gurable, it cannot become confi gurable
+again
+
+var person = {};
+Object.defineProperty(person, “name”, {
+ configurable: false,
+ value: “Nicholas”
+});
+
+alert(person.name); //”Nicholas”
+delete person.name;
+alert(person.name); //”Nicholas”
+
+ex2 :
+var person = {};
+Object.defineProperty(person, “name”, {
+ configurable: false,
+ value: “Nicholas”
+});
+//throws an error
+Object.defineProperty(person, “name”, {
+ configurable: true,
+ value: “Nicholas”
+});
+
+delete person.name;
+console.log(person.name) //undefined
+
+
+
+When you are using Object.defineProperty(), the values for configurable, enumerable, and
+writable default to false unless otherwise specified
+
+.....................................................................................
+
+[[Enumerable]] — Indicates if the property will be returned in a for-in loop. By default,
+this is true for all properties defined directly on an object.
+
+
+............................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+

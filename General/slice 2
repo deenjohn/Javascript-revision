@@ -1,0 +1,15 @@
+https://api.jquery.com/toArray/
+https://github.com/robflaherty/jquery-annotated-source/blob/master/jquery-1.6.2/01-core.js
+
+
+<div>One</div>
+<div>Two</div>
+<div>Three</div>
+
+var res = document.getElementsByTagName("div")
+[div, div, div]length: 3 0: div 1: div 2: div__proto__: HTMLCollection
+
+
+res = Array.prototype.slice.call(res,0);
+[div, div, div] 0: div 1: div 2: div length: 3 __proto__: Array(0)
+

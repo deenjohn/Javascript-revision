@@ -1,0 +1,41 @@
+https://stackoverflow.com/questions/500504/why-is-using-for-in-with-array-iteration-a-bad-idea
+
+The for-in statement by itself is not a "bad practice", however it can be mis-used, for example, to iterate over arrays or array-like objects.
+
+The purpose of the for-in statement is to enumerate over object properties. This statement will go up in the prototype chain, also enumerating over inherited properties, a thing that sometimes is not desired.
+
+Also, the order of iteration is not guaranteed by the spec., meaning that if you want to "iterate" an array object, with this statement you cannot be sure that the properties (array indexes) will be visited in the numeric order.
+
+For example, in JScript (IE <= 8), the order of enumeration even on Array objects is defined as the properties were created:
+
+var array = [];
+array[2] = 'c';
+array[1] = 'b';
+array[0] = 'a';
+
+for (var p in array) {
+  //... p will be "2", "1" and "0" on IE
+}
+Also, speaking about inherited properties, if you, for example, extend the Array.prototype object (like some libraries as MooTools do), that properties will be also enumerated:
+
+Array.prototype.last = function () { return this[this.length-1]; };
+
+for (var p in []) { // an empty array
+  // last will be enumerated
+}
+As I said before to iterate over arrays or array-like objects, the best thing is to use a sequential loop, such as a plain-old for/while loop.
+
+When you want to enumerate only the own properties of an object (the ones that aren't inherited), you can use the hasOwnProperty method:
+
+for (var prop in obj) {
+  if (obj.hasOwnProperty(prop)) {
+    // prop is not inherited
+  }
+}
+And some people even recommend calling the method directly from Object.prototype to avoid having problems if somebody adds a property named hasOwnProperty to our object:
+
+for (var prop in obj) {
+  if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+    // prop is not inherited
+  }
+}

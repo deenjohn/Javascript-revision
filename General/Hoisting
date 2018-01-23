@@ -1,0 +1,92 @@
+
+https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch4.md
+
+Note: Only the declarations themselves are hoisted, while any assignments or other executable logic are left in place.
+
+
+1)
+a = 2;
+
+var a;
+
+console.log( a );
+
+2)
+console.log( a );
+
+var a = 2;
+
+3)
+
+foo();
+
+function foo() {
+	console.log( a ); // undefined
+
+	var a = 2;
+}
+
+The function foo's declaration (which in this case includes the implied value of it as an actual function) 
+is hoisted, such that the call on the first line is able to execute.
+
+It's also important to note that hoisting is per-scope. So while our previous snippets were simplified in that 
+they only included global scope, the foo(..) function we are now examining itself exhibits that var a is hoisted
+to the top of foo(..) (not, obviously, to the top of the program). So the program can perhaps be more accurately 
+interpreted like this:
+
+function foo() {
+	var a;
+
+	console.log( a ); // undefined
+
+	a = 2;
+}
+
+foo();
+
+4)
+Function declarations are hoisted, as we just saw. But function expressions are not.
+
+foo(); // not ReferenceError, but TypeError!
+
+var foo = function bar() {
+	// ...
+};
+
+
+The variable identifier foo is hoisted and attached to the enclosing scope (global) of this program, 
+so foo() doesn't fail as a ReferenceError. But foo has no value yet (as it would if it had been a true 
+function declaration instead of expression). 
+So, foo() is attempting to invoke the undefined value, which is a TypeError illegal operation.
+
+5)
+the name identifier,bar, is not available in the enclosing scope:
+
+foo(); // TypeError
+bar(); // ReferenceError
+
+var foo = function bar() {
+	// ...
+};
+This snippet is more accurately interpreted (with hoisting) as:
+
+var foo;
+
+foo(); // TypeError
+bar(); // ReferenceError
+
+foo = function() {
+	var bar = ...self...
+	// ...
+}
+
+
+6) Functions First
+
+Both function declarations and variable declarations are hoisted. But a subtle detail
+(that can show up in code with multiple "duplicate" declarations) 
+is that functions are hoisted first, and then variables.
+
+
+
+

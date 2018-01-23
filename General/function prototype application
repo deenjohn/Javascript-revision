@@ -1,0 +1,25 @@
+Adding "remove" method on HTML Element
+
+<div id="parent">
+  <div id="a">I'm going to be removed.</div>
+  <div id="b">Me too!</div>
+</div>
+<script type="text/javascript">
+ 
+ HTMLElement.prototype.remove = function() {
+    if (this.parentNode)   
+    // document.getElementById("b").remove()  , "this" points to <div id="b">
+    //this.parentNode points to document 
+      this.parentNode.removeChild(this);
+  };
+
+  var a = document.getElementById("a");
+  a.parentNode.removeChild(a);       // removeChild
+
+  document.getElementById("b").remove(); // remove 
+
+  assert(!document.getElementById("a"),"a is gone.");
+  assert(!document.getElementById("b"),"b is gone too.");
+</script>
+
+

@@ -1,0 +1,35 @@
+
+
+() => () => 0
+
+is same as :
+
+(function () {
+  return function () {
+    return 0;
+  };
+});
+
+
+We could, of course, do the same thing with a block if we wanted:
+() => () => { return true; }
+
+
+..............................................................
+
+
+functions with arguments
+
+1) (room) => {}
+
+is same as :
+
+(function (room) {});
+
+2) 
+
+var a =((room, board) => room + board)(800, 150)
+
+console.log(a)
+
+

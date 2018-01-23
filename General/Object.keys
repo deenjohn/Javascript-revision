@@ -1,0 +1,14 @@
+https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+Can be called only on object
+
+it list all the enumerable properties of the "instance"
+
+
+Object.keys(obj)
+
+Return value
+An array of strings that represent all the enumerable properties of the given object.
+
+var arr = ['a', 'b', 'c'];
+console.log(Object.keys(arr)); // console: ['0', '1', '2']

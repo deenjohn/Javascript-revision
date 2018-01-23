@@ -1,0 +1,24 @@
+
+This is a right-variadic function, meaning that it has one or more fixed arguments, and the rest are
+gathered into the rightmost argument
+
+var __slice = Array.prototype.slice;
+function rightVariadic(fn) {
+  if (fn.length < 1) return fn;
+  return function() {
+    var ordinaryArgs =
+        1 <= arguments.length ? __slice.call(arguments, 0, fn.length - 1) : [],
+      restOfTheArgsList = __slice.call(arguments, fn.length - 1),
+      args =
+        fn.length <= arguments.length
+          ? ordinaryArgs.concat([restOfTheArgsList])
+          : [];
+    return fn.apply(this, args);
+  };
+}
+var firstAndButFirst = rightVariadic(function test(first, butFirst) {
+  return [first, butFirst];
+});
+firstAndButFirst("why", "hello", "there", "little", "droid");
+//=> ["why",["hello","there","little","droid"]]
+

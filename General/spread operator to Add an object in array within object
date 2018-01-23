@@ -1,0 +1,38 @@
+
+
+var stateDefault = { // object with 2 arrays 
+  name: 'Anonymous',
+  hobbies: [],
+  movies: []   // this needs to be updated  ADD a new object in this array
+}
+
+var nextHobbyId = 1;
+
+var res = {
+        ...stateDefault,
+        hobbies: [
+          ...stateDefault.hobbies,
+          {
+            id: nextHobbyId++,
+            hobby: 'Running'
+          }
+        ]
+      }
+      
+  console.log(res)
+      
+   /* 
+ 
+ Object {
+   "hobbies": 
+           [
+                 //added one hobby object
+              {
+                "hobby": "Running",
+                "id": 1
+              }
+         ],
+  "movies": [],
+  "name": "Anonymous"
+}
+*/

@@ -1,0 +1,27 @@
+https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in
+
+if( value ) {
+}
+will evaluate to true if value is not:
+
+null
+undefined
+NaN
+empty string ("")
+0
+false
+The above list represents all possible falsy values in ECMA-/Javascript. Find it in the specification at the ToBoolean section.
+
+Furthermore, if you do not know whether a variable exists (that means, if it was declared) you should check with the typeof operator. For instance
+
+if( typeof foo !== 'undefined' ) {
+    // foo could get resolved and it's defined
+}
+If you can be sure that a variable is declared at least, you should directly check if it has a truthy value like shown above.
+
+
+
+
+
+http://underscorejs.org/docs/underscore.html
+if (typeof module !== 'undefined' && module.exports)

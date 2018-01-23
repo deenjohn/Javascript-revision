@@ -1,0 +1,27 @@
+
+https://developer.mozilla.org/en/docs/Web/HTML/Element/select
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement
+https://developer.mozilla.org/en-US/docs/Web/API
+
+
+      <select class="op" onchange="setBodyAttr('text',
+           this.options[this.selectedIndex].value);"> 
+          <option value="black">
+               black 
+          </option>
+          <option value="darkblue">
+                darkblue 
+         </option>
+      </select>
+      
+     
+     
+     
+     var d = document.getElementsByClassName("op")[0]   
+     https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/options
+     https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedIndex
+    
+    d.options[0]   
+      <option value="black">
+         black 
+      </option>

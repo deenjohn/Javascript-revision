@@ -1,0 +1,26 @@
+
+
+() => 0 
+is same as :
+
+(function () {
+  return 0;
+});
+
+(() => 0) === (() => 0)
+//=> false
+Like arrays, every time you evaluate an expression to produce a function, you get a new function that
+is not identical to any other function, even if you use the same expression to generate it. “Function”
+is a reference type.
+..............................................................
+
+(() => 1)()
+//=> 1
+(() => "Hello, JavaScript")()
+//=> "Hello, JavaScript"
+
+
+..................................................................
+
+() => {}
+It returns the result of evaluating a block that has no statements.

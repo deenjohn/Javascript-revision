@@ -1,0 +1,109 @@
+https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch5.md
+
+
+Closure is when a function is able to remember and access its lexical scope 
+even when that function is executing outside its lexical scope
+
+
+function foo() {
+	var a = 2;
+
+	function bar() {
+		console.log( a );
+	}
+
+	return bar;
+}
+
+var baz = foo();
+
+baz(); // 2 -- Whoa, closure was just observed, man
+
+
+The function bar() has lexical scope access to the inner scope of foo(). But then, we take bar(), 
+the function itself, and pass it as a value. In this case, we return the function object itself that bar references.
+
+After we execute foo(), we assign the value it returned (our inner bar() function) to a variable called 
+baz, and then we actually invoke baz(), which of course is invoking our inner function bar(),
+just by a different identifier reference.
+.............................................................................................................................
+bar() is executed, for sure. But in this case, it's executed outside of its declared lexical scope.
+
+function wait(message) {
+
+	setTimeout( function timer(){
+		console.log( message );
+	}, 1000 );
+
+}
+
+wait( "Hello, closure!" );
+We take an inner function (named timer) and pass it to setTimeout(..). 
+But timer has a scope closure over the scope of wait(..), indeed keeping and using a reference to the variable message.
+
+A thousand milliseconds after we have executed wait(..), and its inner scope should otherwise be long gone,
+that inner function timer still has closure over that scope.
+
+
+Note: Chapter 3 introduced the IIFE pattern. While it is often said that IIFE (alone) is 
+an example of observed closure, I would somewhat disagree, by our definition above.
+
+var a = 2;
+
+(function IIFE(){
+	console.log( a );
+})();
+This code "works", but it's not strictly an observation of closure. Why? Because the function 
+(which we named "IIFE" here) is not executed outside its lexical scope. It's still invoked 
+right there in the same scope as it was declared (the enclosing/global scope that also holds a). 
+a is found via normal lexical scope look-up, not really via closure.
+
+
+Loops + Closure
+
+The most common canonical example used to illustrate closure involves the humble for-loop.
+
+for (var i=1; i<=5; i++) {
+	setTimeout( function timer(){
+		console.log( i );
+	}, i*1000 );
+}
+
+
+
+
+........................................................................
+Array of functions :
+
+
+ 	     function createFunctions(){
+                  var result = new Array();
+                
+                  for (var i=0; i < 10; i++){
+                    result[i] = function(num){
+                        return function(){
+                            return num;
+                        };
+                    }(i);  // (i) v imp
+                }
+                
+                return result;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+D

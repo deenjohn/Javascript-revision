@@ -1,0 +1,46 @@
+
+Que 1 :
+
+var person = {
+    firstname: 'Default',
+    lastname: 'Default',
+    getFullName: function() {
+        return this.firstname + ' ' + this.lastname;  
+    }
+}
+
+var jane = {
+    firstname: 'Jane'   
+}
+
+jane.__proto__ = person; //don't do this , just for understanding
+console.log(jane.getFullName());
+
+
+.............................................................
+
+var person = function(){
+   
+   console.log(this)
+   this.name ="deen" ;
+   console.log(this)
+
+
+}
+
+new person()
+
+/*
+
+person {}
+person { name: 'deen' }
+
+*/
+...................................................................
+
+
+
+
+
+
+

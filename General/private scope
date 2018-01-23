@@ -1,0 +1,14 @@
+
+
+ function outputNumbers(count){
+            
+                (function () {
+                    for (var i=0; i < count; i++){
+                        alert(i);
+                    }
+                })();
+                
+                alert(i);   //causes an error
+            }
+
+            outputNumbers(5)

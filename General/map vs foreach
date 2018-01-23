@@ -1,0 +1,66 @@
+
+const array = [1, 2, 3, 4, 5];
+
+//wrong way
+
+var res = array.forEach(function(num) {
+  return num + 1; //undefined
+});
+console.log(res);
+console.log(array);
+
+//right way
+
+const array = [1, 2, 3, 4, 5];
+
+var res = array.forEach(function(num) {
+  //do something with num
+  console.log(num);
+});
+
+console.log(res);
+console.log(array);
+
+//console.log(num);
+1
+2
+3
+4
+5
+
+//console.log(res);
+undefined
+
+//console.log(array);
+[ 1, 2, 3, 4, 5 ]
+
+
+
+.............................................................
+
+
+
+
+
+
+const array = [1, 2, 3, 4, 5];
+
+var res = array.map(function(num) {
+  return num + 1;
+});
+console.log(res);
+console.log(array);
+
+[ 2, 3, 4, 5, 6 ]
+[ 1, 2, 3, 4, 5 ]
+
+
+
+
+
+
+
+
+
+
+

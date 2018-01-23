@@ -1,0 +1,13 @@
+
+https://www.w3schools.com/cssref/pr_font_font-size.asp
+<label for="search">Search :</label>
+<input id="search" type="search">
+
+
+<script type="text/javascript">
+        var search = document.getElementById("search");
+        search.addEventListener("mouseenter",
+            () => search.style.fontSize = "400%");
+        search.addEventListener("mouseleave", () => search.style.fontSize = "medium");
+    </script>
+</body>

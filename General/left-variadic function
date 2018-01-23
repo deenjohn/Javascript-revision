@@ -1,0 +1,24 @@
+Our leftVariadic function is a decorator that turns any function into a function that gathers
+parameters from the left, instead of from the right. //[gathered].concat(spread)
+
+https://www.w3schools.com/JSREF/jsref_slice_array.asp
+https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+
+const leftVariadic = fn => {
+  if (fn.length < 1) {
+    return fn;
+  } else {
+    return function(...args) {
+      const gathered = args.slice(0, args.length - fn.length + 1),
+        spread = args.slice(args.length - fn.length + 1);
+      return fn.apply(this, [gathered].concat(spread));
+    };
+  }
+};
+
+
+const butLastAndLast = leftVariadic((butLast, last) => [butLast, last]);
+butLastAndLast("why", "hello", "there", "little", "droid");
+//=> [["why","hello","there","little"],"droid"]
+

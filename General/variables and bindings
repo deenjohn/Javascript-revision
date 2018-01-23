@@ -1,0 +1,12 @@
+(x) => (y) => x
+
+is same as :
+
+
+(function (x) {
+  return function (y) {
+    return x;
+  };
+});
+
+

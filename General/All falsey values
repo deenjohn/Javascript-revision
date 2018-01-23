@@ -1,0 +1,11 @@
+https://stackoverflow.com/questions/19839952/all-falsey-values-in-javascript
+https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+false
+0 and -0
+"" and ''
+null
+undefined
+NaN
+
+

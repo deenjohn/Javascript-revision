@@ -1,0 +1,22 @@
+https://api.jquery.com/add/
+
+
+var res = document.getElementsByTagName("div");
+
+res = Array.prototype.slice.call(res,0); //convert to array 
+   [div, div, div, div, div, div]
+ 
+
+var setback = function(elem,color){ 
+      elem.style.background = color
+                                  
+  };
+
+res = res.map((elem) => {
+     setback(elem,"black"); 
+     return elem
+   }
+);
+   
+
+

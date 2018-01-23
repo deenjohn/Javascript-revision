@@ -1,0 +1,31 @@
+
+
+var reduxState = {
+  searchText : 'Dog' ,
+  showCompleted : false ,
+  todos : [{
+    id : '123' ,
+    text : 'Walk the dog' 
+    }]
+}
+
+
+var ob = {searchText : 'Something else' }
+
+var con = {   ...reduxState , ...ob  }
+console.log(con)
+
+/*
+
+Object {
+  "searchText": "Something else",
+  "showCompleted": false,
+  "todos": Array [
+    Object {
+      "id": "123",
+      "text": "Walk the dog"
+    }
+  ]
+}
+
+*/
