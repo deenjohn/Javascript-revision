@@ -1,0 +1,43 @@
+{
+  "name": "eslint-plugin-you-dont-need-lodash-underscore",
+  "version": "6.3.1",
+  "description": "Check methods you can use natively without lodash/underscore",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore.git"
+  },
+  "keywords": [
+    "underscore",
+    "lodash",
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "native"
+  ],
+  "author": "Robert Chang <cht8687@gmail.com>",
+  "contributors": [
+    "Patrick McElhaney <pmcelhaney@gmail.com> (http://patrickmcelhaney.com)",
+    "Steve Mao <maochenyan@gmail.com> (https://github.com/stevemao)"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "test": "istanbul cover tests"
+  },
+  "dependencies": {
+    "kebab-case": "^1.0.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.9",
+    "eslint": "^3.0.0",
+    "istanbul": "^0.4.4"
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore/issues"
+  },
+  "homepage": "https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore.git"
+}
