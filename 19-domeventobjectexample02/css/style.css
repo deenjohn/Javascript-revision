@@ -1,0 +1,7 @@
+element.style {
+    cursor: pointer;
+    border: 1px solid black;
+    width: 100px;
+    height: 80px;
+    overflow: auto;
+}

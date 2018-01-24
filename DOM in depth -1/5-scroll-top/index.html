@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>5- scroll top</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+  
+  
+</head>
+
+<body>
+
+  
+<head>
+<style>
+#myDIV {
+    height: 150px;
+    width: 150px;
+    overflow: auto;
+}
+
+#content {
+    height: 800px;
+    width: 2000px;
+    background-color: coral;
+}
+</style>
+</head>
+<body>
+
+<p>Scroll inside the div element to display the number of pixels the content of div is scrolled horizontally and vertically.</p>
+
+<div id="myDIV" onscroll="myFunction()">
+  <div id="content">Scroll Me
+  </div>
+  
+</div>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var elmnt = document.getElementById("myDIV");
+    var x = elmnt.scrollLeft;
+    var y = elmnt.scrollTop;
+    document.getElementById ("demo").innerHTML = "Horizontally: " + x + "px<br>Vertically: " + y + "px";
+}
+</script>
+
+</body>
+  <script src='http://unpkg.com/react@16.0.0/umd/react.development.js'></script>
+<script src='http://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.min.js'></script>
+<script src='http://cdn.rawgit.com/kentcdodds/ea2fdfc82f79228a6be641c78dc0e1b9/raw/0f792eb8dfb3bf993bdf50c9656f12090ed344e6/hoist-non-react-statics.umd.js'></script>
+
+  
+
+</body>
+
+</html>

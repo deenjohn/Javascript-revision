@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>1 -InnerHTML</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+  
+  
+</head>
+
+<body>
+
+  
+<body>
+    <div id="content">
+        <p>This is a <strong>paragraph</strong> with a list following it.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <input type="button" value="Set InnerHTML" onclick="setInnerHTML()">
+
+    <script type="text/javascript">
+      
+        function setInnerHTML(){
+            var div = document.getElementById("content");
+            div.innerHTML = "Hello & welcome, <b>\"reader\"!</b>";
+        }
+
+    </script>
+</body>
+  <script src='http://unpkg.com/react@16.0.0/umd/react.development.js'></script>
+<script src='http://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.min.js'></script>
+<script src='http://cdn.rawgit.com/kentcdodds/ea2fdfc82f79228a6be641c78dc0e1b9/raw/0f792eb8dfb3bf993bdf50c9656f12090ed344e6/hoist-non-react-statics.umd.js'></script>
+
+  
+
+</body>
+
+</html>

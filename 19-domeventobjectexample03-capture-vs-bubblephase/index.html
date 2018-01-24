@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>19 - DOMEventObjectExample03 - capture vs bubblephase</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <head>
+    <title>DOM Event Object Example</title>
+</head>
+
+<body>
+    <input type="button" value="Click Me" id="myBtn" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function (event) {
+            console.log(event.eventPhase); //2 at the target
+           // event.stopPropagation()
+        };
+
+        document.body.addEventListener("click", function (event) {
+            console.log(event.eventPhase); //1 capture phase
+        }, true);
+
+        document.body.onclick = function (event) {
+            console.log(event.eventPhase); //3  bubble phase
+        };
+    </script>
+</body>
+  
+  
+
+</body>
+
+</html>

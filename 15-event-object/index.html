@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>15 - event object</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+
+<head>
+    <title>HTML Event Handler Example</title>
+</head>
+
+<body>
+    <form method="post">
+        <input type="text" name="username" value="enter username">
+        <input type="button" id ="myBtn" value="Echo Username" onclick="clickHandler(event)">
+    </form>
+
+    <script type="text/javascript" charset="utf-8" async defer>
+      /*
+      In DOM-compliant browsers, the event object is passed in as the sole argument to an event
+handler. Regardless of the method used to assign the event handler, DOM Level 0 or DOM Level 2,
+the event object is passed in
+      */
+        var btn = document.getElementById('myBtn');
+          btn.onclick = function(event){
+           alert(event.type); //”click”
+         };
+
+      btn.addEventListener('click', function(event){
+       alert(event.type); //”click”
+      }, false);
+      
+    </script>
+</body>
+  
+  
+
+</body>
+
+</html>

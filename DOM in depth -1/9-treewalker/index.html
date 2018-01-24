@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>9 - TreeWalker</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <head>
+        <title>TreeWalker Example</title>
+        <script type="text/javascript">
+           function makeList() {
+                var div = document.getElementById("div1");
+                var filter = function(node){
+                    return (node.tagName.toLowerCase() == "li") ? 
+                        NodeFilter.FILTER_ACCEPT : 
+                        NodeFilter.FILTER_SKIP;
+                };
+                //http://mail-archives.apache.org/mod_mbox//xml-general/200012.mbox/%3C3A26B94F.9595647F@us.ibm.com%3E
+                var walker = document.createTreeWalker(div, NodeFilter.SHOW_ELEMENT, filter, false);
+
+                var output = document.getElementById("text1");
+                var node = walker.nextNode();
+                while (node !== null) {
+                    output.value += node.tagName + "\n";
+                    node = walker.nextNode();
+                }
+
+           }
+
+        </script>
+    </head>
+    <body>
+        <p><strong>Note:</strong> The <code>TreeWalker</code> object has only been implemented in Internet Explorer 9, Chrome,  Opera (version 7.6 and higher), Safari (version 1.3 and higher), and Firefox (version 1.0 and higher). It has not been implemented in Internet Explorer (so this example won't work).</p>
+        <div id="div1">
+            <p><b>Hello</b> world!</p>
+            <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <li>List item 3</li>
+            </ul>
+        </div>
+        <textarea rows="10" cols="40" id="text1"></textarea><br>
+        <input type="button" value="Make List" onclick="makeList()">
+    </body>
+  <script src='http://unpkg.com/react@16.0.0/umd/react.development.js'></script>
+<script src='http://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.min.js'></script>
+<script src='http://cdn.rawgit.com/kentcdodds/ea2fdfc82f79228a6be641c78dc0e1b9/raw/0f792eb8dfb3bf993bdf50c9656f12090ed344e6/hoist-non-react-statics.umd.js'></script>
+
+  
+
+</body>
+
+</html>

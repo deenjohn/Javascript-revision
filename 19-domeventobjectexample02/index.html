@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>19 - DOMEventObjectExample02</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <head>
+    <title>DOM Event Object Example</title>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me"  
+
+    />
+    
+    <script type="text/javascript">
+        
+        var handler = function(event){
+        	console.log('handler');
+    	   //event.stopImmediatePropagation()
+    	
+    	 }
+        
+        //event bubble up
+         document.body.onclick = function(event){
+           // console.log(event.currentTarget) 
+            //console.log(event.target);
+              console.log(event.currentTarget === document.body);   //true
+              console.log(this === document.body);   //true
+              console.log(event.target ===event.currentTarget)           //false
+              console.log(event.target === document.getElementById("myBtn")); //true
+        };       
+    </script>
+</body>
+  
+  
+
+</body>
+
+</html>

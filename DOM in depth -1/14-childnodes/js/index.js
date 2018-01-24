@@ -1,0 +1,8 @@
+var ulElementChildNodes = document.querySelector('ul').childNodes;
+
+console.log(ulElementChildNodes); //logs an array like list of all nodes inside of the ul
+
+/*Call forEach as if its a method of NodeLists so we can loop over the NodeList. Done because NodeLists are array like, but do not directly inherit from Array*/
+Array.prototype.forEach.call(ulElementChildNodes, function (item) {
+   console.log(item); //logs each item in the array
+});

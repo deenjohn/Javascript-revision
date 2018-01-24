@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>16 - DOMLevel0EventHandlerExample</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <head>
+    <title>DOM Level 0 Event Handler Example</title>
+</head>
+
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <input type="button" id="myRemoveBtn" value="Remove Event Handler" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+       // no access to event object
+        btn.onclick = function () {
+            console.log(this);
+            console.log(this.id);
+        };
+
+        var removeBtn = document.getElementById("myRemoveBtn");
+        removeBtn.onclick = function () {
+            btn.onclick = null;
+        };
+    </script>
+</body>
+  
+  
+
+</body>
+
+</html>

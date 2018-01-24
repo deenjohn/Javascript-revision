@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>18  - currentTarget</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <head>
+    <title>DOM Event Object Example</title>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <script type="text/javascript">
+      /*
+      Inside an event handler, the this object is always equal to the value of currentTarget, whereas
+target contains only the actual target of the event. If the event handler is assigned directly onto the
+intended target, then this, currentTarget, and target all have the same value
+ If the event handler existed on a parent node of
+the button, such as document.body, the values would be different  
+      */
+      
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(event){
+            alert(event.currentTarget === this);
+            alert(event.target === this);
+        };        
+    </script>
+</body>
+  
+  
+
+</body>
+
+</html>
